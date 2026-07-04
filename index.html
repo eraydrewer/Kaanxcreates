@@ -316,35 +316,77 @@ footer a{
         padding:20px 6%;
     }
 
-    .hero-image{
-    width:180px;
-    height:180px;
+    .hero-image-wrapper{
+    display:flex;
+    justify-content:center;
+    margin-bottom:35px;
+}
+
+.hero-ring{
+    width:205px;
+    height:205px;
+    border-radius:50%;
+    padding:5px;
+
+    background:linear-gradient(
+        0deg,
+        #000,
+        #444,
+        #fff,
+        #444,
+        #000
+    );
+
+    background-size:300% 300%;
+
+    animation:
+        rotateRing 10s linear infinite,
+        gradientMove 6s ease infinite;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.35s;
+}
+
+.hero-ring:hover{
+    transform:scale(1.05);
+}
+
+.hero-image{
+    width:195px;
+    height:195px;
     border-radius:50%;
     object-fit:cover;
     object-position:center;
     display:block;
-    margin:0 auto 30px;
-    padding:5px;
-
-    background:linear-gradient(
-        135deg,
-        #000000,
-        #444444,
-        #ffffff,
-        #444444,
-        #000000
-    );
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.18);
-
-    transition:all .35s ease;
 }
 
-.hero-image:hover{
-    transform:translateY(-6px) scale(1.05);
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.25);
+@keyframes rotateRing{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes gradientMove{
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
 }
 </style>
 </head>
